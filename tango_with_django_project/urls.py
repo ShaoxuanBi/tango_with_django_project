@@ -17,6 +17,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
+from django.urls import re_path
+from django.conf.urls import url
 from django.urls import include
 from rango import views
 
@@ -25,4 +27,6 @@ urlpatterns = [
     path('rango/', include('rango.urls')), # whole app name is rango
     # The above maps any URLs starting with rango/ to be handled by rango.
     path('admin/', admin.site.urls),
+    path('about/', views.about, name='about'),
+    path('category/<slug:category_name_slug>/', views.show_category, name='show_category'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
