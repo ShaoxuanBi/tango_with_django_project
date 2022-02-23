@@ -107,6 +107,10 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+PASSWORD_HASHERS = (
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher', )
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -121,7 +125,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+LOGIN_URL = 'rango:login'
 
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
